@@ -24,3 +24,5 @@ C:\Users\dimitry\StudentApplication\StudentApplication\StudentApplication\bin\We
 C:\Users\dimitry\StudentApplication\StudentApplication\StudentApplication\obj\Debug\StudentApplication.csprojResolveAssemblyReference.cache
 C:\Users\dimitry\StudentApplication\StudentApplication\StudentApplication\obj\Debug\StudentApplication.dll
 C:\Users\dimitry\StudentApplication\StudentApplication\StudentApplication\obj\Debug\StudentApplication.pdb
+C:\Users\dimitry\StudentApplication\StudentApplication\StudentApplication\bin\Domain.dll
+C:\Users\dimitry\StudentApplication\StudentApplication\StudentApplication\bin\Domain.pdb
