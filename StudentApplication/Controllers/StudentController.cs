@@ -57,18 +57,17 @@ namespace StudentApplication.Controllers
         // POST: /Student/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(StudentViewModel model)
         {
-            try
-            {
-                // TODO: Add insert logic here
-
+            if (ModelState.IsValid){
+                students.Add(new Student(
+                    model.Id,
+                    model.FullName,
+                    model.Age,
+                    model.Gender));
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(model);
         }
         
         //

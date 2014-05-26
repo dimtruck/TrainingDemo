@@ -1,0 +1,15 @@
+C:\Users\dimitry\StudentApplication\StudentApplication\UnitTestLibrary\bin\Debug\UnitTestLibrary.dll
+C:\Users\dimitry\StudentApplication\StudentApplication\UnitTestLibrary\bin\Debug\UnitTestLibrary.pdb
+C:\Users\dimitry\StudentApplication\StudentApplication\UnitTestLibrary\bin\Debug\Domain.dll
+C:\Users\dimitry\StudentApplication\StudentApplication\UnitTestLibrary\bin\Debug\Moq.dll
+C:\Users\dimitry\StudentApplication\StudentApplication\UnitTestLibrary\bin\Debug\nunit.framework.dll
+C:\Users\dimitry\StudentApplication\StudentApplication\UnitTestLibrary\bin\Debug\StudentApplication.dll
+C:\Users\dimitry\StudentApplication\StudentApplication\UnitTestLibrary\bin\Debug\EntityFramework.dll
+C:\Users\dimitry\StudentApplication\StudentApplication\UnitTestLibrary\bin\Debug\Domain.pdb
+C:\Users\dimitry\StudentApplication\StudentApplication\UnitTestLibrary\bin\Debug\StudentApplication.pdb
+C:\Users\dimitry\StudentApplication\StudentApplication\UnitTestLibrary\bin\Debug\Moq.xml
+C:\Users\dimitry\StudentApplication\StudentApplication\UnitTestLibrary\bin\Debug\nunit.framework.xml
+C:\Users\dimitry\StudentApplication\StudentApplication\UnitTestLibrary\bin\Debug\EntityFramework.xml
+C:\Users\dimitry\StudentApplication\StudentApplication\UnitTestLibrary\obj\Debug\UnitTestLibrary.csprojResolveAssemblyReference.cache
+C:\Users\dimitry\StudentApplication\StudentApplication\UnitTestLibrary\obj\Debug\UnitTestLibrary.dll
+C:\Users\dimitry\StudentApplication\StudentApplication\UnitTestLibrary\obj\Debug\UnitTestLibrary.pdb

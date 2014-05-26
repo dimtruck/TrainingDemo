@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\Users\dimitry\StudentApplication\StudentApplication\UnitTestLibrary\bin\Debug\UnitTestLibrary.dll" total="3" errors="0" failures="1" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2014-05-25" time="19:52:08">
+  <environment nunit-version="2.6.3.13283" clr-version="2.0.50727.8000" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Users\dimitry\StudentApplication\StudentApplication\packages\NUnit.Runners.2.6.3\tools" machine-name="DIMA" user="dimitry" user-domain="dima" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="C:\Users\dimitry\StudentApplication\StudentApplication\UnitTestLibrary\bin\Debug\UnitTestLibrary.dll" executed="True" result="Failure" success="False" time="0.479" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="UnitTestLibrary" executed="True" result="Failure" success="False" time="0.461" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="Controllers" executed="True" result="Failure" success="False" time="0.459" asserts="0">
+            <results>
+              <test-suite type="TestFixture" name="StudentControllerTest" executed="True" result="Failure" success="False" time="0.454" asserts="0">
+                <results>
+                  <test-case name="UnitTestLibrary.Controllers.StudentControllerTest.CreateStudentsTest" executed="True" result="Success" success="True" time="0.321" asserts="3" />
+                  <test-case name="UnitTestLibrary.Controllers.StudentControllerTest.FailToCreateStudentsTest" executed="True" result="Failure" success="False" time="0.021" asserts="2">
+                    <failure>
+                      <message><![CDATA[  Expected: <StudentApplication.Models.StudentViewModel>
+  But was:  <Castle.Proxies.StudentViewModelProxy>
+]]></message>
+                      <stack-trace><![CDATA[at UnitTestLibrary.Controllers.StudentControllerTest.FailToCreateStudentsTest() in c:\Users\dimitry\StudentApplication\StudentApplication\UnitTestLibrary\Controllers\StudentControllerTest.cs:line 70
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="UnitTestLibrary.Controllers.StudentControllerTest.GetStudentsTest" executed="True" result="Success" success="True" time="0.008" asserts="3" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>
