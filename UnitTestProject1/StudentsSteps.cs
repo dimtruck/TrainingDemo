@@ -13,12 +13,14 @@ namespace IntegrationTest
     {
         private IWebDriver driver;
         private StudentCreatePage studentCreatePage;
+        private StudentListPage studentListPage;
 
         [BeforeScenario]
         public void SetUp()
         {
             driver = new ChromeDriver(@"C:\Users\dimitry\StudentApplication\StudentApplication\packages\Selenium.WebDriver.2.41.0");
             studentCreatePage = new StudentCreatePage(driver);
+            studentListPage = new StudentListPage(driver);
         }
 
         [AfterScenario]
@@ -56,6 +58,30 @@ namespace IntegrationTest
             Assert.IsTrue(studentCreatePage.HasMessage(errorString));
         }
 
+        [When(@"I create new student with ""(.*)"" for FullName and (.*) for Age and ""(.*)"" for Grade")]
+        public void WhenICreateNewStudentWithForFullNameAndForAgeAndForGrade(
+            string fullName, int age, string grade)
+        {
+            StudentViewModel model = new StudentViewModel()
+            {
+                FullName = fullName,
+                Age = age,
+                Grade = grade
+            };
+            studentCreatePage = studentCreatePage.CreateNewStudent(model);
+        }
+
+        [When(@"I navigate to student list page")]
+        public void WhenINavigateToStudentListPage()
+        {
+            studentListPage.NavigateTo();
+        }
+
+        [Then(@"the page should contain ""(.*)""")]
+        public void ThenThePageShouldContain(string value)
+        {
+            Assert.IsTrue(studentListPage.HasTDElement(value));
+        }
 
 
     }

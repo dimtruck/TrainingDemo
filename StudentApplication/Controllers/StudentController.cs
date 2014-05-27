@@ -1,4 +1,5 @@
 ﻿using Domain.Models;
+using Domain.Repositories;
 using StudentApplication.Models;
 using System;
 using System.Collections.Generic;
@@ -10,30 +11,20 @@ namespace StudentApplication.Controllers
 {
     public class StudentController : Controller
     {
-        private IList<Student> students = new List<Student>()
-        {
-            new Student(1, "Tom Jones", 15, Gender.MALE),
-            new Student(2, "Sally Smith", 14, Gender.FEMALE),
-            new Student(3, "Tom Parkinson", 15, Gender.MALE)
-        };
+        private readonly IRepository<Student> _studentRepository = 
+            new StudentRepository();
+
         //
         // GET: /Student/
 
         public ActionResult Index()
         {
             IList<StudentViewModel> viewModel = new List<StudentViewModel>();
+            var students = _studentRepository.GetAll();
 
             foreach (Student student in students)
-            {
-                viewModel.Add(
-                    new StudentViewModel()
-                    {
-                        Id = student.Id,
-                        FullName = student.FullName,
-                        Age = student.Age,
-                        Gender = student.Gender
-                    });
-            }
+                viewModel.Add(AutoMapper.Mapper.Map<StudentViewModel>(student));
+
             return View(viewModel);
         }
 
@@ -60,11 +51,14 @@ namespace StudentApplication.Controllers
         public ActionResult Create(StudentViewModel model)
         {
             if (ModelState.IsValid){
+                //add students here
+                /*
                 students.Add(new Student(
                     model.Id,
                     model.FullName,
                     model.Age,
                     model.Gender));
+                */
                 return RedirectToAction("Index");
             }
             return View(model);

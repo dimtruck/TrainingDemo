@@ -13,7 +13,7 @@ namespace StudentApplication.Models
         public int Id { get; set; }
 
         [Required]
-        public string FullName { get; set; }
+        public String FullName { get; set; }
 
         [Range(6,20)]
         public int Age { get; set; }

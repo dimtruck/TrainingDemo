@@ -24,4 +24,8 @@ Scenario: Create a new student with grade
 Scenario: Create a new student with invalid grade
 	Given I navigate to create new student page
 	When I create new student with "Dimitry" for FullName and 20 for Age and "AA" for Grade
-	Then the result should be return "The field Age must be between 6 and 20."
+	Then the result should be return "not a valid grade"
+
+Scenario: View students
+	When I navigate to student list page
+	Then the page should contain "Tom Jones"

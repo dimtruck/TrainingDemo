@@ -11,12 +11,27 @@ using System.Web.Mvc;
 using System.Linq;
 using Moq;
 using System.Net;
+using AutoMapper;
+using Domain.Models;
+using StudentApplication.Helpers;
 
 namespace UnitTestLibrary.Controllers
 {
     [TestFixture]
     public class StudentControllerTest
     {
+        [SetUp]
+        public void SetUp()
+        {
+            AutoMapper.Mapper.CreateMap<Student, StudentViewModel>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
+                .ForMember(dest => dest.FullName, opt => opt.ResolveUsing<FullNameResolver>())
+                .ForMember(dest => dest.Gender, opt => opt.MapFrom(src => src.Gender))
+                .ForMember(dest => dest.Age, opt => opt.ResolveUsing<DateOfBirthResolver>())
+                .ForMember(dest => dest.Grade, opt => opt.Ignore());
+            Mapper.AssertConfigurationIsValid();
+        }
+
         [Test]
         public void GetStudentsTest()
         {
@@ -81,12 +96,12 @@ namespace UnitTestLibrary.Controllers
 
             //Act
             var result =
-                controller.Create(model) as ViewResult;
-            Console.WriteLine(controller.ModelState.IsValid);
+                controller.Create(model) as RedirectToRouteResult;
 
             //Assert
             Assert.IsNotNull(result);
-            Assert.IsFalse(controller.ModelState.IsValid);
+            Assert.AreEqual("Index", result.RouteValues["action"]);
+            Assert.IsTrue(controller.ModelState.IsValid);
         }
 
     }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Domain.Models;
+using StudentApplication.Helpers;
+using StudentApplication.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -36,6 +39,17 @@ namespace StudentApplication
             
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+            RegisterMappers();
+        }
+
+        private void RegisterMappers()
+        {
+            AutoMapper.Mapper.CreateMap<Student, StudentViewModel>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
+                .ForMember(dest => dest.FullName, opt => opt.ResolveUsing<FullNameResolver>())
+                .ForMember(dest => dest.Gender, opt => opt.MapFrom(src => src.Gender))
+                .ForMember(dest => dest.Age, opt => opt.ResolveUsing<DateOfBirthResolver>())
+                .ForMember(dest => dest.Grade, opt => opt.Ignore());
         }
     }
 }
