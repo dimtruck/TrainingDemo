@@ -17,9 +17,6 @@ namespace UnitTestLibrary.Controllers
     [TestFixture]
     public class StudentControllerTest
     {
-        private Mock<StudentViewModel> model = new Mock<StudentViewModel>();
-
-
         [Test]
         public void GetStudentsTest()
         {
@@ -43,7 +40,8 @@ namespace UnitTestLibrary.Controllers
         {
             //Arrange
             StudentController controller = new StudentController();
-            
+            Mock<StudentViewModel> model = new Mock<StudentViewModel>();
+
             //Act
             var result =
                 controller.Create(model.Object) as RedirectToRouteResult;
@@ -60,6 +58,7 @@ namespace UnitTestLibrary.Controllers
             //Arrange
             StudentController controller = new StudentController();
             controller.ModelState.AddModelError("Id", "Invalid id");
+            Mock<StudentViewModel> model = new Mock<StudentViewModel>();
 
             //Act
             var result =
@@ -69,5 +68,26 @@ namespace UnitTestLibrary.Controllers
             Assert.IsNotNull(result);
             Assert.IsFalse(controller.ModelState.IsValid);
         }
+
+        [Test]
+        public void CreateStudentsWithoutIdTest()
+        {
+            //Arrange
+            StudentController controller = new StudentController();
+            StudentViewModel model = new StudentViewModel()
+            {
+                Id = 0
+            };
+
+            //Act
+            var result =
+                controller.Create(model) as ViewResult;
+            Console.WriteLine(controller.ModelState.IsValid);
+
+            //Assert
+            Assert.IsNotNull(result);
+            Assert.IsFalse(controller.ModelState.IsValid);
+        }
+
     }
 }
