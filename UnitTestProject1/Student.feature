@@ -29,3 +29,4 @@ Scenario: Create a new student with invalid grade
 Scenario: View students
 	When I navigate to student list page
 	Then the page should contain "Tom Jones"
+	And the page should contain image with source "/Content/man.png"

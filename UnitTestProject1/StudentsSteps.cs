@@ -83,6 +83,12 @@ namespace IntegrationTest
             Assert.IsTrue(studentListPage.HasTDElement(value));
         }
 
+        [Then(@"the page should contain image with source ""(.*)""")]
+        public void ThenThePageShouldContainImageWithSource(string source)
+        {
+            Assert.IsTrue(studentListPage.HasImageElement(source));
+        }
+
 
     }
 }

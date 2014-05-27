@@ -164,6 +164,8 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.When("I navigate to student list page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 31
  testRunner.Then("the page should contain \"Tom Jones\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 32
+ testRunner.And("the page should contain image with source \"/Content/man.png\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

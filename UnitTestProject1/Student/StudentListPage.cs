@@ -27,5 +27,9 @@ namespace IntegrationTest.Student
             return driver.FindElements(By.TagName("td")).Any(t => t.Text == message);
         }
 
+        public bool HasImageElement(string message)
+        {
+            return driver.FindElements(By.TagName("img")).Any(t => t.GetAttribute("src") == message);
+        }
     }
 }
