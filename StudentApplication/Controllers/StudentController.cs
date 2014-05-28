@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Domain.Models;
 using Domain.Repositories;
+using StudentApplication.Helpers;
 using StudentApplication.Models;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Web.Mvc;
 
 namespace StudentApplication.Controllers
 {
+    [Logging]
     public class StudentController : Controller
     {
         private readonly IRepository<Student> _studentRepository = 

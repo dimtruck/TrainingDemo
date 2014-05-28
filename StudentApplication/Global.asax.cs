@@ -40,6 +40,7 @@ namespace StudentApplication
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
             RegisterMappers();
+            log4net.Config.XmlConfigurator.Configure();
         }
 
         private void RegisterMappers()
