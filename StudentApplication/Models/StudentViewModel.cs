@@ -5,6 +5,7 @@ using System.Web;
 using Domain.Models;
 using System.ComponentModel.DataAnnotations;
 using StudentApplication.Helpers;
+using System.Web.Mvc;
 
 namespace StudentApplication.Models
 {
@@ -22,5 +23,8 @@ namespace StudentApplication.Models
         public String Grade { get; set; }
 
         public Gender Gender { get; set; }
+
+        [Remote("ValidateSchool","Student", ErrorMessage="Invalid school")]
+        public String School { get; set; }
     }
 }

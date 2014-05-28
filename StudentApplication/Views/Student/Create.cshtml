@@ -39,6 +39,14 @@
             @Html.ValidationMessageFor(model => model.Grade)
         </div>
 
+        <div class="editor-label">
+            @Html.LabelFor(model => model.School)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.School)
+            @Html.ValidationMessageFor(model => model.School)
+        </div>
+
         <p>
             <input type="submit" id="Create" value="Create" />
         </p>

@@ -122,5 +122,22 @@ namespace StudentApplication.Controllers
                 return View();
             }
         }
+
+        //
+        // GET: /Student/ValidateSchool/schoolName
+        public ActionResult ValidateSchool(String school)
+        {
+            /**
+             * This method gets called every time a validation gets triggered from the client.  It will return either a true (school exists in a list) or false (school does
+             * not exist in a list)
+             */
+            IEnumerable<String> schoolList = new List<String>()
+            {
+                "Travis","Westlake","Round Rock","Austin"
+            };
+
+
+            return Json(schoolList.Contains(school), JsonRequestBehavior.AllowGet);
+        }
     }
 }
