@@ -1,4 +1,6 @@
-﻿using Domain.Models;
+﻿using Castle.Windsor;
+using Castle.Windsor.Installer;
+using Domain.Models;
 using StudentApplication.Helpers;
 using StudentApplication.Models;
 using System;
@@ -51,6 +53,21 @@ namespace StudentApplication
             RegisterRoutes(RouteTable.Routes);
             RegisterMappers();
             log4net.Config.XmlConfigurator.Configure();
+            RegisterIoC();
+        }
+
+        private void RegisterIoC()
+        {
+            //create new container
+            //get all installers and register components specified there
+            var container = new WindsorContainer().
+                Install(FromAssembly.This());
+
+            var controllerFactory = new WindsorControllerFactory(container.Kernel);
+            //specifies a different controller factory from default
+            ControllerBuilder.Current.SetControllerFactory(controllerFactory);
+            
+
         }
 
         private void RegisterMappers()

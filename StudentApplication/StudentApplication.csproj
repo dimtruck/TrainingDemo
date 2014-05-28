@@ -48,6 +48,12 @@
     <Reference Include="AutoMapper.Net4">
       <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
     </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
     </Reference>
@@ -112,6 +118,10 @@
     <Compile Include="Helpers\GradeRangeAttribute.cs" />
     <Compile Include="Helpers\ImageHelper.cs" />
     <Compile Include="Helpers\LoggingAttribute.cs" />
+    <Compile Include="Helpers\WindsorControllerFactory.cs" />
+    <Compile Include="Installers\ControllerInstaller.cs" />
+    <Compile Include="Installers\RepositoryInstaller.cs" />
+    <Compile Include="Interceptors\LoggingInterceptor.cs" />
     <Compile Include="Models\StudentViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

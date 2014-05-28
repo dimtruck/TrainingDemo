@@ -14,8 +14,12 @@ namespace StudentApplication.Controllers
     [Logging]
     public class StudentController : Controller
     {
-        private readonly IRepository<Student> _studentRepository = 
-            new StudentRepository();
+        private readonly IRepository<Student> _studentRepository;
+
+        public StudentController(IRepository<Student> studentRepository)
+        {
+            _studentRepository = studentRepository;
+        }
 
         public ViewResult List(String school)
         {
