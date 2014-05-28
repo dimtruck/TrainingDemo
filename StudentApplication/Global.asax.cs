@@ -25,6 +25,16 @@ namespace StudentApplication
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                "StudentRoute",
+                "Student/{action}",
+                new { controller = "Student", action = "Index" });
+            routes.MapRoute(
+                "StudentConstrainedRoute",
+                "{school}",
+                new { controller = "Student", action = "List" },
+                new { school = @"\w*"});
+
+            routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults

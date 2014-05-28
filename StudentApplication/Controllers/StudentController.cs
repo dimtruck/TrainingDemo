@@ -17,6 +17,18 @@ namespace StudentApplication.Controllers
         private readonly IRepository<Student> _studentRepository = 
             new StudentRepository();
 
+        public ViewResult List(String school)
+        {
+            IEnumerable<Student> studentList = 
+                _studentRepository.GetAll().Where(
+                    t => t.School.ToLower().Equals(school.ToLower()));
+            IList<StudentViewModel> studentViewModelList =
+                new List<StudentViewModel>();
+            foreach (Student student in studentList)
+                studentViewModelList.Add(Mapper.Map<StudentViewModel>(student));
+            return View(studentViewModelList);
+        }
+
         //
         // GET: /Student/
 

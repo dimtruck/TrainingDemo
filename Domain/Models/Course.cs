@@ -17,5 +17,9 @@ namespace Domain.Models
         public int Id { get; private set; }
 
         public string Name { get; private set; }
+
+        public IList<Student> Students { get; set; }
+
+        public String School { get; set; }
     }
 }

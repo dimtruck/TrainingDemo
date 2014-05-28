@@ -11,7 +11,7 @@ namespace Domain.Models
         public Student(int id, string firstName, string middleInitial,
             string lastName, DateTime dateOfBirth, int graduationYear,
             Gender gender, string birthCity, State birthState,
-            string residenceCity, State residenceState
+            string residenceCity, State residenceState, String school
             )
         {
             Id = id;
@@ -25,7 +25,7 @@ namespace Domain.Models
             StateOfResidence = residenceState;
             BirthCity = birthCity;
             BirthState = birthState;
-
+            School = school;
         }
 
         public int Id { get; private set; }
@@ -44,5 +44,7 @@ namespace Domain.Models
         public State BirthState { get; set; }
         public String CityOfResidence { get; set; }
         public State StateOfResidence { get; set; }
+
+        public String School { get; set; }
     }
 }

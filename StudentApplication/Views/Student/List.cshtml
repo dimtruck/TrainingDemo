@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<StudentApplication.Models.StudentViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "List";
 }
 
-<h2>Index</h2>
+<h2>List</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -18,7 +18,10 @@
             Age
         </th>
         <th>
-            Gender
+            Grade
+        </th>
+        <th>
+            School
         </th>
         <th></th>
     </tr>
@@ -32,7 +35,10 @@
             @Html.DisplayFor(modelItem => item.Age)
         </td>
         <td>
-            @Html.GenderImage(item.Gender,item.Gender.ToString())
+            @Html.DisplayFor(modelItem => item.Grade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.School)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
@@ -43,5 +49,3 @@
 }
 
 </table>
-
-@Html.RouteLink("view schools and grades", "StudentConstrainedRoute", new { school = "Austin" })
