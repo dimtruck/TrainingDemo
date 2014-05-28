@@ -1,4 +1,5 @@
-﻿using Domain.Models;
+﻿using AutoMapper;
+using Domain.Models;
 using Domain.Repositories;
 using StudentApplication.Models;
 using System;
@@ -48,6 +49,7 @@ namespace StudentApplication.Controllers
         // POST: /Student/Create
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(StudentViewModel model)
         {
             if (ModelState.IsValid){
@@ -69,14 +71,17 @@ namespace StudentApplication.Controllers
  
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(Mapper.Map<StudentViewModel>(
+                _studentRepository.GetAll().First(
+                t => t.Id == id)));
         }
 
         //
         // POST: /Student/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, StudentViewModel model)
         {
             try
             {
@@ -86,7 +91,7 @@ namespace StudentApplication.Controllers
             }
             catch
             {
-                return View();
+                return View(model);
             }
         }
 

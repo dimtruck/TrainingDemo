@@ -51,6 +51,23 @@ namespace UnitTestLibrary.Controllers
         }
 
         [Test]
+        public void UpdateStudentsTest()
+        {
+            //Arrange
+            StudentController controller = new StudentController();
+            Mock<StudentViewModel> model = new Mock<StudentViewModel>();
+
+            //Act
+            var result =
+                controller.Edit(1, model.Object) as RedirectToRouteResult;
+
+            //Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual("Index", result.RouteValues["action"]);
+            Assert.IsTrue(controller.ModelState.IsValid);
+        }
+
+        [Test]
         public void CreateStudentsTest()
         {
             //Arrange
